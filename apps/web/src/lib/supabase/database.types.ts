@@ -29,6 +29,7 @@ export type Database = {
             | "agent_or_broker"
             | "creator"
             | null;
+          intake_role: "searching" | "agent" | null;
           searching_with: "on_my_own" | "partner" | "family_or_friends" | null;
           region: string | null;
           utm_source: string | null;
@@ -56,6 +57,7 @@ export type Database = {
             | "agent_or_broker"
             | "creator"
             | null;
+          intake_role?: "searching" | "agent" | null;
           searching_with?: "on_my_own" | "partner" | "family_or_friends" | null;
           region?: string | null;
           utm_source?: string | null;
@@ -74,6 +76,7 @@ export type Database = {
           created_at?: string;
         };
         Update: {
+          intake_role?: "searching" | "agent" | null;
           email_confirmed_at?: string | null;
           unsubscribed_at?: string | null;
           last_notified_at?: string | null;
@@ -920,6 +923,7 @@ export type Database = {
           p_referral_code?: string | null;
           p_ip_hash: string;
           p_unsubscribe_token_hash?: string | null;
+          p_intake_role?: "searching" | "agent" | null;
         };
         Returns: Json;
       };
@@ -936,6 +940,7 @@ export type Database = {
           p_referral_code?: string | null;
           p_ip_hash: string;
           p_unsubscribe_token_hash?: string | null;
+          p_intake_role?: "searching" | "agent" | null;
         };
         Returns: Json;
       };

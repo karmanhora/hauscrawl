@@ -29,6 +29,14 @@ describe("waitlistSignupSchema", () => {
     expect(result.success).toBe(true);
   });
 
+  it.each(["searching", "agent"])("accepts the optional %s intake role", (intakeRole) => {
+    expect(waitlistSignupSchema.safeParse({ email: "a@example.com", intakeRole }).success).toBe(true);
+  });
+
+  it("rejects unsupported intake roles", () => {
+    expect(waitlistSignupSchema.safeParse({ email: "a@example.com", intakeRole: "broker" }).success).toBe(false);
+  });
+
   it("rejects an invalid email", () => {
     expect(waitlistSignupSchema.safeParse({ email: "not-an-email" }).success).toBe(false);
   });

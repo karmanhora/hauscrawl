@@ -6,7 +6,8 @@ export const WAITLIST_UTM_MAX_LENGTH = 200;
 export const WAITLIST_REFERRER_MAX_LENGTH = 500;
 export const WAITLIST_REFERRAL_CODE_LENGTH = 10;
 export const WAITLIST_REFERRAL_CODE_PATTERN = /^[a-z0-9]{10}$/;
-export const WAITLIST_COUNT_VISIBILITY_THRESHOLD = 25;
+export const WAITLIST_COUNTER_MIN = 25;
+export const WAITLIST_COUNT_VISIBILITY_THRESHOLD = WAITLIST_COUNTER_MIN;
 export const WAITLIST_IP_HASH_PATTERN = /^[0-9a-f]{64}$/;
 export const WAITLIST_REFERRAL_BONUS_SPOTS = 5;
 export const WAITLIST_MAX_CREDITED_REFERRALS = 10;
@@ -36,6 +37,8 @@ export const WAITLIST_ROLES = [
   "agent_or_broker",
   "creator",
 ] as const;
+
+export const WAITLIST_INTAKE_ROLES = ["searching", "agent"] as const;
 
 export const WAITLIST_ROLE_LABELS: Record<(typeof WAITLIST_ROLES)[number], string> = {
   planning_next_12_months: "Planning to buy in the next 12 months",

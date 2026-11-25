@@ -1,6 +1,10 @@
-import { WAITLIST_COUNT_VISIBILITY_THRESHOLD } from "@hauscrawl/core";
+import { WAITLIST_COUNTER_MIN } from "@hauscrawl/core";
 
 import { createClient } from "@/lib/supabase/server";
+
+export function visibleWaitlistCount(count: number | null): number | null {
+  return count !== null && count >= WAITLIST_COUNTER_MIN ? count : null;
+}
 
 /** Reads the aggregate count through the only public read RPC. */
 export async function getWaitlistCount(): Promise<number | null> {
@@ -22,5 +26,5 @@ export async function getWaitlistCount(): Promise<number | null> {
 /** The UI hides the counter until the threshold is met. */
 export async function getVisibleWaitlistCount(): Promise<number | null> {
   const count = await getWaitlistCount();
-  return count !== null && count >= WAITLIST_COUNT_VISIBILITY_THRESHOLD ? count : null;
+  return visibleWaitlistCount(count);
 }

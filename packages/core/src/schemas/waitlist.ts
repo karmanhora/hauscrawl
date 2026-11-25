@@ -5,6 +5,7 @@ import {
   WAITLIST_REFERRER_MAX_LENGTH,
   WAITLIST_REGION_MAX_LENGTH,
   WAITLIST_ROLES,
+  WAITLIST_INTAKE_ROLES,
   WAITLIST_SEARCHING_WITH,
   WAITLIST_UTM_MAX_LENGTH,
 } from "../constants/waitlist";
@@ -20,6 +21,7 @@ function optionalText(max: number, message: string) {
 }
 
 export const waitlistRoleSchema = z.enum(WAITLIST_ROLES);
+export const waitlistIntakeRoleSchema = z.enum(WAITLIST_INTAKE_ROLES);
 export const waitlistSearchingWithSchema = z.enum(WAITLIST_SEARCHING_WITH);
 
 export const waitlistRegionSchema = optionalText(
@@ -43,6 +45,7 @@ const optionalUtm = optionalText(
 export const waitlistSignupSchema = z.object({
   email: emailSchema,
   role: waitlistRoleSchema.optional(),
+  intakeRole: waitlistIntakeRoleSchema.optional(),
   searchingWith: waitlistSearchingWithSchema.optional(),
   region: waitlistRegionSchema,
   utmSource: optionalUtm,

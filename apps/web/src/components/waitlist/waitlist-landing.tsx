@@ -4,7 +4,8 @@ import { MobileWaitlistCta } from "@/components/landing/swipe-demo/mobile-waitli
 import { WaitlistForm } from "@/components/waitlist/waitlist-form";
 import { Container } from "@/components/ui/container";
 import { CheckIcon, MapPinIcon, UserIcon } from "@/components/ui/icons";
-import { getWaitlistCount } from "@/lib/waitlist";
+import { getVisibleWaitlistCount } from "@/lib/waitlist";
+import Link from "next/link";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-landing-display", display: "swap" });
@@ -82,7 +83,7 @@ const faqs = [
 ];
 
 export async function WaitlistLanding() {
-  const count = await getWaitlistCount();
+  const count = await getVisibleWaitlistCount();
 
   return (
     <div className={`landing-design ${display.variable} ${body.variable} overflow-x-clip bg-[#EEF1F4] font-[family-name:var(--font-landing-body)]`}>
@@ -165,9 +166,27 @@ export async function WaitlistLanding() {
         </Container>
       </section>
 
+      <section className="bg-white">
+        <Container className="grid gap-8 py-14 sm:py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <h2 className="font-[family-name:var(--font-landing-display)] text-4xl text-[#232A4A] sm:text-5xl">
+            For agents
+          </h2>
+          <div>
+            <ul className="space-y-3 text-[#3F4758]">
+              <li>Post short reels of homes and neighborhoods.</li>
+              <li>Viewers swipe to save a home or request a tour.</li>
+              <li>See which reels get saves and tour requests.</li>
+            </ul>
+            <Link href="/?role=agent#join" className="mt-6 inline-flex rounded-lg bg-[#1F7A74] px-5 py-3 font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFB84D]">
+              Join as an agent
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       <section className="bg-[#EEF1F4]"><Container className="grid gap-12 py-16 sm:py-20 lg:grid-cols-2"><div><p className="text-sm font-medium text-[#1F7A74]">Why swiping</p><h2 className="mt-4 max-w-xl font-[family-name:var(--font-landing-display)] text-4xl text-[#232A4A] sm:text-5xl">Keep the homes worth another look.</h2><p className="mt-5 max-w-lg leading-relaxed text-[#4B5364]">Most real estate content gets skipped. HausCrawl makes the skip the point, so you move through homes quickly and keep only what matters.</p></div><div className="grid gap-8 border-l-2 border-[#1F7A74] pl-6 sm:grid-cols-2"><div><h3 className="font-semibold text-[#232A4A]">For buyers</h3><p className="mt-2 leading-relaxed text-[#4B5364]">See more homes faster. Keep only what you love.</p></div><div><h3 className="font-semibold text-[#232A4A]">For agents</h3><p className="mt-2 leading-relaxed text-[#4B5364]">Share reels people finish, with tour requests instead of likes.</p></div></div></Container></section>
 
-      <section className="bg-white"><Container className="py-14 sm:py-16"><p className="text-sm font-medium text-[#1F7A74]">What is already built in early access</p><ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[#3F4758]">{["Shared collections with owner, editor, and viewer roles","Per-member ratings and notes","Follows and comments","A vertical video feed","Neighborhood-level privacy"].map(item=><li key={item} className="flex items-center gap-2"><CheckIcon size={16} className="text-[#1F7A74]"/>{item}</li>)}</ul></Container></section>
+      <section className="bg-white"><Container className="py-14 sm:py-16"><p className="text-sm font-medium text-[#1F7A74]">What we&apos;ve built so far</p><ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[#3F4758]">{["Shared collections with owner, editor, and viewer roles","Per-member ratings and notes","Follows and comments","A vertical video feed","Neighborhood-level privacy"].map(item=><li key={item} className="flex items-center gap-2"><CheckIcon size={16} className="text-[#1F7A74]"/>{item}</li>)}</ul></Container></section>
 
       <section className="bg-[#232A4A] text-white">
         <Container className="py-20 sm:py-28">

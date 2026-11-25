@@ -56,6 +56,7 @@ export {
 export {
   WAITLIST_CONFIRMATION_TTL_SECONDS,
   WAITLIST_COUNT_VISIBILITY_THRESHOLD,
+  WAITLIST_COUNTER_MIN,
   WAITLIST_EMAIL_MAX_LENGTH,
   WAITLIST_IP_HASH_PATTERN,
   WAITLIST_MAX_CREDITED_REFERRALS,
@@ -68,6 +69,7 @@ export {
   WAITLIST_REGION_MAX_LENGTH,
   WAITLIST_ROLE_LABELS,
   WAITLIST_ROLES,
+  WAITLIST_INTAKE_ROLES,
   WAITLIST_SEARCHING_WITH,
   WAITLIST_SEARCHING_WITH_LABELS,
   WAITLIST_STATUS_CODE_MIN_LENGTH,
@@ -213,6 +215,7 @@ export {
   waitlistRoleSchema,
   waitlistSearchingWithSchema,
   waitlistSignupSchema,
+  waitlistIntakeRoleSchema,
 } from "./schemas/waitlist";
 export type { WaitlistSignupInput } from "./schemas/waitlist";
 export {

@@ -48,6 +48,7 @@ type ValidSignupResult = {
 type SignupArgs = {
   p_email: string;
   p_role: string | null;
+  p_intake_role: "searching" | "agent" | null;
   p_searching_with: string | null;
   p_region: string | null;
   p_utm_source: string | null;
@@ -96,6 +97,7 @@ function parseSignup(body: Record<string, unknown>) {
   return waitlistSignupSchema.safeParse({
     email: readString(body, "email"),
     role: readString(body, "role") || undefined,
+    intakeRole: readString(body, "intakeRole") || undefined,
     searchingWith: readString(body, "searchingWith") || undefined,
     region: readString(body, "region") || undefined,
     utmSource: readString(body, "utmSource") || undefined,
@@ -226,6 +228,7 @@ export async function POST(request: Request) {
   const args: SignupArgs = {
     p_email: input.email,
     p_role: input.role ?? null,
+    p_intake_role: input.intakeRole ?? null,
     p_searching_with: input.searchingWith ?? null,
     p_region: input.region ?? null,
     p_utm_source: input.utmSource ?? null,

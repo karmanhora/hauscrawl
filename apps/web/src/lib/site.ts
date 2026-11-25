@@ -5,6 +5,7 @@
 export const SITE_NAME = "HausCrawl";
 export const SITE_DESCRIPTION =
   "Swipe through illustrative home reels, save what you love, and decide together in a private shortlist. Join the nationwide HausCrawl early-access waitlist.";
+export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "[YOUR_CONTACT_EMAIL]";
 
 export function isWaitlistOnly(): boolean {
   return process.env.WAITLIST_ONLY === "true";
@@ -19,7 +20,7 @@ export function getSiteUrl(): string {
 }
 
 export function getContactEmail(): string {
-  return process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "privacy@example.com";
+  return CONTACT_EMAIL;
 }
 
 export function absoluteUrl(path: string): string {

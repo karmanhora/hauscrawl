@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { CheckIcon } from "@/components/ui/icons";
 import { trackWaitlistEvent } from "@/lib/waitlist-analytics";
+
+type IntakeRole = "searching" | "agent";
 
 type WaitlistFormProps = {
   idPrefix: string;
@@ -56,7 +58,13 @@ export function WaitlistForm({
   buttonVariant = "moss",
 }: WaitlistFormProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const queryRole = searchParams.get("role");
   const [email, setEmail] = useState("");
+  const [selectedIntakeRole, setSelectedIntakeRole] = useState<IntakeRole | "">("");
+  const intakeRole =
+    selectedIntakeRole ||
+    (queryRole === "searching" || queryRole === "agent" ? queryRole : "");
   const [source] = useState<SourceState>(() => (typeof window === "undefined" ? {} : readSource()));
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -99,6 +107,7 @@ export function WaitlistForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: normalizedEmail,
+          intakeRole: intakeRole || undefined,
           ref: source.ref,
           utmSource: source.utmSource,
           utmMedium: source.utmMedium,
@@ -230,6 +239,28 @@ export function WaitlistForm({
           <div className="mt-5">{submitButton}</div>
         </div>
       )}
+
+      <fieldset className="mt-4">
+        <legend className="mb-2 text-sm font-medium text-ink">I&apos;m here as</legend>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {([
+            ["searching", "I'm looking for a home"],
+            ["agent", "I'm a real estate agent or loan officer"],
+          ] as const).map(([value, label]) => (
+            <label key={value} className="flex cursor-pointer items-start gap-2 rounded-xl border border-line px-3 py-2 text-sm text-ink focus-within:ring-2 focus-within:ring-[#FFB84D]">
+              <input
+                type="radio"
+                name={`${idPrefix}-intake-role`}
+                value={value}
+                checked={intakeRole === value}
+                onChange={() => setSelectedIntakeRole(value)}
+                className="mt-0.5 accent-[#1F7A74]"
+              />
+              <span>{label}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <div
         className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
