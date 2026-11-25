@@ -4,7 +4,7 @@
  */
 export const SITE_NAME = "HausCrawl";
 export const SITE_DESCRIPTION =
-  "A social network for home hunting. Follow people you trust, save and react to homes, and decide together in private shared collections. Early access starts in Seattle / King County.";
+  "Swipe through illustrative home reels, save what you love, and decide together in a private shortlist. Join the nationwide HausCrawl early-access waitlist.";
 
 export function isWaitlistOnly(): boolean {
   return process.env.WAITLIST_ONLY === "true";

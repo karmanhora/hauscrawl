@@ -40,7 +40,7 @@ test("saves the email, then stages survey answers without touching canonical fie
   await page.goto("/");
 
   await expect(
-    page.getByRole("heading", { level: 1, name: /find a home together/i }),
+    page.getByRole("heading", { level: 1, name: /swipe through homes. decide together./i }),
   ).toBeVisible();
 
   const email = `waitlist.e2e.${Date.now()}@gmail.com`;

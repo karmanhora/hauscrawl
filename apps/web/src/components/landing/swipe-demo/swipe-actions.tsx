@@ -1,0 +1,4 @@
+"use client";
+export function SwipeActions({ act, undo, canUndo }: { act: (kind: "skip" | "save" | "tour") => void; undo: () => void; canUndo: boolean }) {
+ return <div className="mt-4 flex items-center justify-center gap-2"><button onClick={()=>act("skip")} aria-label="Skip sample home" className="rounded-lg border border-[#AAB0B9] px-3 py-2 text-sm text-[#4B5364]">Skip</button><button onClick={undo} disabled={!canUndo} aria-label="Undo last swipe" className="rounded-lg border border-[#AAB0B9] px-3 py-2 text-sm text-[#4B5364] disabled:opacity-40">Undo</button><button onClick={()=>act("tour")} aria-label="Book a tour" className="rounded-lg bg-[#FFB84D] px-3 py-2 text-sm font-medium text-[#232A4A]">Book a tour</button><button onClick={()=>act("save")} aria-label="Save sample home" className="rounded-lg bg-[#1F7A74] px-4 py-2 text-sm font-medium text-white">Save</button></div>
+}

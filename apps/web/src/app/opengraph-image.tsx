@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 
 import { HAUSCRAWL_LOGO_DATA_URI, HAUSCRAWL_MARK_DATA_URI } from "./brand-logo-data";
 
-export const alt = "HausCrawl — find a home together";
+export const alt = "HausCrawl — Swipe through homes. Decide together.";
 export const size = { width: 1_200, height: 630 };
 export const contentType = "image/png";
 
 const homes = [
-  { name: "Maple Hollow", facts: "3 bd · 2 ba · 1,480 sq ft", result: "Everyone likes" },
-  { name: "Alder Bend", facts: "2 bd · 1 ba · 960 sq ft", result: "Split opinion" },
-  { name: "Northbank", facts: "4 bd · 2.5 ba · 2,050 sq ft", result: "Everyone likes" },
+  { name: "Silver Lake · Los Angeles", facts: "Light-filled · Garden", result: "Sample" },
+  { name: "Logan Square · Chicago", facts: "Walkable · Bright", result: "Sample" },
+  { name: "East Austin · Austin", facts: "Wood details · Cozy", result: "Sample" },
 ];
 
 export default function OpenGraphImage() {
@@ -21,8 +21,8 @@ export default function OpenGraphImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: "#F7F6F2",
-        color: "#1F2422",
+        backgroundColor: "#232A4A",
+        color: "#FFFFFF",
         padding: "48px 64px",
       }}
     >
@@ -38,12 +38,11 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             fontSize: 17,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#6F7069",
+            letterSpacing: "0",
+            color: "#EEF1F4",
           }}
         >
-          Seattle / King County
+          Nationwide early access
         </div>
       </div>
 
@@ -66,7 +65,7 @@ export default function OpenGraphImage() {
               letterSpacing: "-0.055em",
             }}
           >
-            Find a home
+            Swipe through homes.
           </div>
           <div
             style={{
@@ -77,10 +76,10 @@ export default function OpenGraphImage() {
               letterSpacing: "-0.055em",
             }}
           >
-            together.
+            Decide together.
           </div>
-          <div style={{ display: "flex", marginTop: 24, fontSize: 26, color: "#6F7069" }}>
-            Rate, compare, and decide — privately.
+          <div style={{ display: "flex", marginTop: 24, fontSize: 26, color: "#EEF1F4" }}>
+            Save what you love. Join the nationwide waitlist.
           </div>
         </div>
 
@@ -89,7 +88,7 @@ export default function OpenGraphImage() {
             display: "flex",
             width: 292,
             height: 430,
-            backgroundColor: "#1F2422",
+            backgroundColor: "#1F7A74",
             borderRadius: 42,
             padding: 7,
           }}
@@ -116,7 +115,7 @@ export default function OpenGraphImage() {
                     color: "#6E736D",
                   }}
                 >
-                  SHARED COLLECTION
+                  Shared shortlist
                 </div>
                 <div style={{ display: "flex", marginTop: 5, fontSize: 23, fontWeight: 500 }}>
                   Our first home
@@ -154,8 +153,8 @@ export default function OpenGraphImage() {
               </div>
             </div>
 
-            <div style={{ display: "flex", marginTop: 10, fontSize: 12, color: "#6E736D" }}>
-              You both like <span style={{ fontWeight: 600, color: "#1F2422" }}>2 of 3</span> homes
+            <div style={{ display: "flex", marginTop: 10, fontSize: 12, color: "#4B5364" }}>
+              Sample shared shortlist
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 7, marginTop: 12 }}>
@@ -179,7 +178,7 @@ export default function OpenGraphImage() {
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: 9,
-                      backgroundColor: "#F5F4EF",
+                      backgroundColor: "#EEF1F4",
                     }}
                   >
                     <img
@@ -194,7 +193,7 @@ export default function OpenGraphImage() {
                     <div style={{ display: "flex", fontSize: 14, fontWeight: 600 }}>
                       {home.name}
                     </div>
-                    <div style={{ display: "flex", fontSize: 9, color: "#6E736D" }}>
+                    <div style={{ display: "flex", fontSize: 9, color: "#4B5364" }}>
                       {home.facts}
                     </div>
                     <div

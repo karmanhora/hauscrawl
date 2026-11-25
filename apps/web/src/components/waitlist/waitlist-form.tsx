@@ -159,7 +159,7 @@ export function WaitlistForm({
         <p className="mt-4 text-body-sm leading-relaxed text-stone">
           {success.emailConfigured
             ? "Confirm your email to join the queue and get your private status page. Check your inbox for the link."
-            : "We'll email you when early access opens in Seattle / King County. No noise in the meantime."}
+            : "We'll email you when nationwide early access opens. No noise in the meantime."}
         </p>
 
         <p className="mt-5 text-caption leading-relaxed text-stone">

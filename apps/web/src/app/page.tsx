@@ -4,7 +4,7 @@ import Link from "next/link";
 import { HouseMark } from "@/components/brand/logo";
 import { WaitlistLanding } from "@/components/waitlist/waitlist-landing";
 import { getCurrentUser } from "@/lib/auth";
-import { isWaitlistOnly, SITE_DESCRIPTION } from "@/lib/site";
+import { isWaitlistOnly } from "@/lib/site";
 
 const steps = [
   {
@@ -41,28 +41,28 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!isWaitlistOnly()) return {};
 
   return {
-    title: "Find a home together",
-    description: SITE_DESCRIPTION,
+    title: "Swipe through homes. Decide together.",
+    description: "Swipe through illustrative home reels, save what you love, and decide together. Join the nationwide HausCrawl early-access waitlist.",
     alternates: { canonical: "/" },
     openGraph: {
       type: "website",
       url: "/",
       siteName: "HausCrawl",
-      title: "HausCrawl — find a home together",
-      description: SITE_DESCRIPTION,
+      title: "HausCrawl — Swipe through homes. Decide together.",
+      description: "Swipe through illustrative home reels, save what you love, and decide together. Join the nationwide HausCrawl early-access waitlist.",
       images: [
         {
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: "HausCrawl — find a home together",
+          alt: "HausCrawl — Swipe through homes. Decide together.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "HausCrawl — find a home together",
-      description: SITE_DESCRIPTION,
+      title: "HausCrawl — Swipe through homes. Decide together.",
+      description: "Swipe through illustrative home reels, save what you love, and decide together. Join the nationwide HausCrawl early-access waitlist.",
       images: ["/opengraph-image"],
     },
   };

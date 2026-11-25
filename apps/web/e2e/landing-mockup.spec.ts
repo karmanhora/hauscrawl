@@ -41,13 +41,11 @@ test("keeps the form submit above the fold at 375x667", async ({ page }) => {
   expect(box!.y + box!.height).toBeLessThanOrEqual(667);
 });
 
-test("does not animate the neighborhood strip when reduced motion is enabled", async ({ page }) => {
+test("does not animate the demo when reduced motion is enabled", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
 
-  const duration = await page
-    .locator(".landing-marquee")
-    .evaluate((element) => getComputedStyle(element).animationDuration);
+  const duration = await page.locator(".landing-deal").evaluate((element) => getComputedStyle(element).animationDuration);
 
   expect(Number.parseFloat(duration)).toBeLessThan(0.001);
 });

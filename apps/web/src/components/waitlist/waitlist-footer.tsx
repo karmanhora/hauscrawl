@@ -16,13 +16,13 @@ export function WaitlistFooter() {
               Find a home, together.
             </p>
             <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-stone">
-              A social network for home hunting. Early access starts in Seattle / King County.
+              A social network for home hunting. Join the nationwide early-access waitlist.
             </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2">
             <nav aria-label="Footer">
-              <p className="text-[10px] font-semibold tracking-[0.18em] text-stone uppercase">
+              <p className="text-sm font-semibold text-stone">
                 Explore
               </p>
               <div className="mt-4 flex flex-col gap-3">
@@ -39,7 +39,7 @@ export function WaitlistFooter() {
             </nav>
 
             <nav aria-label="Legal and contact">
-              <p className="text-[10px] font-semibold tracking-[0.18em] text-stone uppercase">
+              <p className="text-sm font-semibold text-stone">
                 Details
               </p>
               <div className="mt-4 flex flex-col gap-3">

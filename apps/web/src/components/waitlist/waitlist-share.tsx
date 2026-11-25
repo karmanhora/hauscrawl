@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { trackWaitlistEvent } from "@/lib/waitlist-analytics";
 
 const SHARE_TEXT =
-  "I'm on the HausCrawl waitlist for early access in Seattle / King County. Join if you're hunting too:";
+  "I'm on the HausCrawl nationwide early-access waitlist. Join if you're hunting too:";
 
 export function WaitlistShare({ referralUrl }: { referralUrl: string }) {
   const [copied, setCopied] = useState(false);

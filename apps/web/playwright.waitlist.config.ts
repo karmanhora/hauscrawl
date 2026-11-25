@@ -12,7 +12,7 @@ const inheritedEnv = Object.fromEntries(
  */
 export default defineConfig({
   testDir: "./e2e",
-  testMatch: ["waitlist.spec.ts", "landing-mockup.spec.ts"],
+  testMatch: ["waitlist.spec.ts", "landing-mockup.spec.ts", "swipe-demo.spec.ts"],
   fullyParallel: false,
   workers: 1,
   retries: 0,

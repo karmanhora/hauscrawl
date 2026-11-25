@@ -1,0 +1,1 @@
+export function DemoEndCard(){return <div className="mt-4 text-center"><p className="font-medium text-ink">Want this with real homes? Join the waitlist.</p><a href="#shortlist" className="mt-2 inline-block text-sm text-moss underline">See where saves go</a></div>}

@@ -12,8 +12,8 @@ export function WaitlistHeader() {
         </a>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <p className="hidden text-[11px] font-medium tracking-[0.18em] text-stone uppercase md:block">
-            Seattle / King County
+          <p className="hidden text-sm font-medium text-stone md:block">
+            Nationwide early access
           </p>
           <a
             href="/#join"
